@@ -4,9 +4,10 @@ body{
 }
 
 button {
-    background-color: pink;
+    background-color: rgb(226, 98, 12);
     height: 2rem;
     width: 5rem;
     border-radius: 5px;
     border-color: brown;
+    cursor: pointer;
 }
