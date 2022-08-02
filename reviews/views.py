@@ -1,3 +1,4 @@
+from urllib import request
 from reviews.models import Review
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -10,7 +11,6 @@ from .forms import ReviewForm
 from .models import Review
 
 # Create your views here.
-
 
 class ReviewView(CreateView):
     model = Review
@@ -42,3 +42,19 @@ class ReviewsListView(ListView):
 class SingleReviewView(DetailView):
     template_name = "reviews/single_review.html"
     model = Review
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        loaded_review = self.object
+        request = self.request
+        favourite_id = request.session.get("favourite_review")
+        context["is_favourite"] = favourite_id == str(loaded_review.id)
+        return context
+
+class AddFavouriteView(View):
+     def post(self, request):
+        review_id = request.POST["review_id"]
+        print(review_id)
+        request.session["favourite_review"] = review_id
+        print( request.session)
+        return HttpResponseRedirect("/reviews/" +  review_id)

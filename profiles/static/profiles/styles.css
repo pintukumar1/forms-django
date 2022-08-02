@@ -11,3 +11,21 @@ button {
     border-color: brown;
     cursor: pointer;
 }
+
+.imageClass {
+    height: 15rem;
+    width: 15rem;
+    text-align: center;
+}
+
+li {
+    margin: 20px;
+}
+
+.list{
+    justify-content: space-between;
+    list-style: none;
+    display: flex;
+    flex-flow: row;
+}
+
