@@ -1,0 +1,12 @@
+body{
+    text-align: center;
+    margin: 5rem;
+}
+
+button {
+    background-color: pink;
+    height: 2rem;
+    width: 5rem;
+    border-radius: 5px;
+    border-color: brown;
+}
